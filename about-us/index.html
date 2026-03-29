@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SIELOM.WEB | О нас</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <!-- ========== HEADER (НЕ ТРОГАТЬ) ========== -->
+  <header class="topbar">
+    <div class="container topbar__inner glass">
+      <a class="brand" href="#">
+        <span class="brand__dot"></span>
+        SIELOM.WEB
+      </a>
+      <nav class="nav">
+        <a class="nav__link" href="#">Главная</a>
+        <a class="nav__link is-active" href="#about">О нас</a>
+        <a class="nav__link" href="#contact">Контакты</a>
+        <a class="nav__link" href="#reviews">Отзывы</a>
+      </nav>
+      <div class="topbar__actions">
+        <button class="icon-btn" aria-label="Профиль"><img src="user.png" alt="" onerror="this.style.display='none'"></button>
+        <button class="icon-btn" aria-label="Звонок"><img src="phone.png" alt="" onerror="this.style.display='none'"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== ОСНОВНОЙ КОНТЕНТ (МОЖНО РЕДАКТИРОВАТЬ) ========== -->
+  <main>
+    <!-- БЛОК 1: О команде -->
+    <section class="section container">
+      <!-- Заголовок -->
+      <h2 class="section__title section__title--left">НАША КОМАНДА!</h2>
+
+      <!-- Карточка 1: фото слева, текст справа -->
+      <article class="about-card">
+        <div class="about-card__media">
+          <div class="about-photo" aria-label="Фото команды"></div>
+        </div>
+        <div class="about-card__content">
+          <p>Мы — команда SIELOM.WEB. Это сообщество веб-разработчиков, дизайнеров и маркетологов, которых объединила любовь к технологиям и желание делать интернет лучше и удобнее.</p>
+        </div>
+      </article>
+
+      <!-- Карточка 2: фото справа, текст слева (реверс) -->
+      <article class="about-card about-card--reverse">
+        <div class="about-card__media">
+          <div class="about-photo" aria-label="Фото команды"></div>
+        </div>
+        <div class="about-card__content">
+          <p>Мы не любим шаблоны и скучные решения. Для нас каждый проект — это новая задача, которую нужно решить красиво, быстро и с максимальной пользой для клиента. Мы верим, что хороший сайт должен не просто висеть в сети, а приносить деньги и заявки.</p>
+        </div>
+      </article>
+
+      <!-- Карточка 3: фото слева, текст справа -->
+      <article class="about-card">
+        <div class="about-card__media">
+          <div class="about-photo" aria-label="Фото команды"></div>
+        </div>
+        <div class="about-card__content">
+          <p>За нашими плечами [X] успешных проектов и [Y] лет опыта. Но мы не стоим на месте — постоянно изучаем новые тренды и инструменты, чтобы ваш сайт был на шаг впереди конкурентов.</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- БЛОК 2: О королеве -->
+    <section class="section container">
+      <!-- Центровой заголовок -->
+      <h2 class="section__title section__title--center">НАША КОРОЛЕВА!</h2>
+
+      <!-- Портрет по центру -->
+      <div class="person-portrait">
+        <img src="../media/diana.png" alt="Диана Шинкевич" class="person-portrait__image">
+      </div>
+
+      <!-- Имя -->
+      <div class="person-name">ШИНКЕВИЧ ДИАНА ЕВГЕНЬЕВНА</div>
+
+      <!-- Описание -->
+      <div class="person-description">
+        <p>Диана — наш основатель и идейный вдохновитель. Тот человек, который горит проектами и зажигает нас. Но в SIELOM.WEB правда нет места строгой иерархии. Мы прислушиваемся друг к другу, спорим до хрипоты в голосовых, но всегда находим лучшее решение. Потому что классный продукт рождается там, где каждый чувствует себя важной частью команды.</p>
+        <p>Мы — веб-разработчики, дизайнеры и аналитики, которым надоело штамповать шаблоны. Мы собираемся (иногда в зуме, иногда в кофейне) чтобы придумывать и создавать сайты, которые реально работают. Без воды, без скуки, с заботой о пользователе.</p>
+      </div>
+    </section>
+
+    <!-- БЛОК 3: Фиолетовый с футером (НЕ ТРОГАТЬ ВНУТРИ) -->
+    <section class="purple-connect">
+      <div class="purple-connect__inner">
+        <div class="purple-connect__row">
+          <!-- Левая колонка с текстом и кнопками -->
+          <div class="purple-connect__content">
+            <h2 class="purple-connect__title">Будьте на связи<br>с командой SIELOM.WEB</h2>
+            <p class="purple-connect__text">В нашем MAX-канале мы показываем проекты до релиза, делимся фишками разработки и честно рассказываем, как у нас дела. Без воды, только живой контент.</p>
+            <p class="purple-connect__text">А в Telegram-канале — чуть больше жизни, общения и анонсов. Подписывайтесь, чтобы быть в курсе.</p>
+            
+            <!-- Кнопки -->
+            <div class="purple-connect__buttons">
+              <a href="#" class="purple-connect__btn">
+                <img src="../media/max.png" alt="MAX канал">
+              </a>
+              <a href="#" class="purple-connect__btn">
+                <img src="../media/tg.png" alt="Telegram канал">
+              </a>
+            </div>
+          </div>
+          
+          <!-- Правая колонка с фото -->
+          <div class="purple-connect__image">
+            <img src="../media/tg-max.png" alt="Telegram и MAX">
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== FOOTER (НЕ ТРОГАТЬ) ========== -->
+      <footer class="footer" id="contact">
+        <div class="container footer__inner glass">
+          <div class="footer__col">
+            <div class="footer__brand">SIELOM.WEB</div>
+            <a class="footer__link" href="#">Главная</a>
+            <a class="footer__link" href="#about">О нас</a>
+            <a class="footer__link" href="#contact">Контакты</a>
+            <a class="footer__link" href="#reviews">Отзывы</a>
+          </div>
+          <div class="footer__col">
+            <div class="footer__title">Обратная связь</div>
+            <a class="footer__link" href="#">Задать вопрос</a>
+            <a class="footer__link" href="#">Оставить отзыв</a>
+          </div>
+          <div class="footer__col">
+            <div class="footer__title">Контакты</div>
+            <div class="footer__text">📞 +7 (999) 99-99-99</div>
+            <div class="footer__text">✉️ test@mail.ru</div>
+          </div>
+          <div class="footer__col">
+            <div class="footer__title">Социальные сети</div>
+            <div class="social">
+              <a class="social__btn" href="#" aria-label="VK">VK</a>
+              <a class="social__btn" href="#" aria-label="TG">TG</a>
+              <a class="social__btn" href="#" aria-label="YouTube">YT</a>
+            </div>
+          </div>
+          <div class="footer__bottom">
+            <span>© SIELOM.WEB. Сургут. Промышленный проект 3. 2026</span>
+          </div>
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

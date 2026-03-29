@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SIELOM.WEB | Регистрация</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <!-- ========== HEADER (НЕ ТРОГАТЬ) ========== -->
+  <header class="topbar">
+    <div class="container topbar__inner glass">
+      <a class="brand" href="#">
+        <span class="brand__dot"></span>
+        SIELOM.WEB
+      </a>
+      <nav class="nav">
+        <a class="nav__link" href="#">Главная</a>
+        <a class="nav__link" href="#about">О нас</a>
+        <a class="nav__link" href="#contact">Контакты</a>
+        <a class="nav__link" href="#reviews">Отзывы</a>
+      </nav>
+      <div class="topbar__actions">
+        <button class="icon-btn" aria-label="Профиль"><img src="user.png" alt="" onerror="this.style.display='none'"></button>
+        <button class="icon-btn" aria-label="Звонок"><img src="phone.png" alt="" onerror="this.style.display='none'"></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== ОСНОВНОЙ КОНТЕНТ (СТРАНИЦА ВХОДА) ========== -->
+  <main class="login-main">
+    <div class="login-card">
+      <!-- Логотип по центру -->
+      <div class="login-logo">
+        <img src="../media/logo.png" alt="SIELOM.WEB" class="logo-img">
+      </div>
+
+      <div class="h-registration">
+      <h1>РЕГИСТРАЦИЯ</h1>
+      </div>
+
+      <!-- Форма входа -->
+      <form class="login-form" action="#" method="post">
+        <div class="input-group">
+          <input type="text" class="login-input" placeholder="Логин" required>
+        </div>
+        <div class="input-group">
+          <input type="text" class="login-input" placeholder="Почта" required>
+        </div>
+        <div class="input-group">
+          <input type="password" class="login-input" placeholder="Пароль" required>
+        </div>
+        <div class="input-group">
+          <input type="password" class="login-input" placeholder="Подтвердите пароль" required>
+        </div>
+        <button type="submit" class="login-btn">Регистрация</button>
+      </form>
+
+      <!-- Блок "Войти с помощью" -->
+      <div class="social-login">
+        <div class="social-login__title">Войти с помощью</div>
+        <div class="social-icons">
+          <a href="#" class="social-icon">
+            <img src="../media/max-logo.png" alt="Max" class="social-icon__img">
+          </a>
+          <a href="#" class="social-icon">
+            <img src="../media/telegram.png" alt="Telegram" class="social-icon__img">
+          </a>
+          <a href="#" class="social-icon">
+            <img src="../media/vk.png" alt="VK" class="social-icon__img">
+          </a>
+          <a href="#" class="social-icon">
+            <img src="../media/yandex.png" alt="Yandex" class="social-icon__img">
+          </a>
+          <a href="#" class="social-icon">
+            <img src="../media/google.png" alt="Google" class="social-icon__img">
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ========== FOOTER (НЕ ТРОГАТЬ) ========== -->
+  <footer class="footer" id="contact">
+    <div class="container footer__inner glass">
+      <div class="footer__col">
+        <div class="footer__brand">SIELOM.WEB</div>
+        <a class="footer__link" href="#">Главная</a>
+        <a class="footer__link" href="#about">О нас</a>
+        <a class="footer__link" href="#contact">Контакты</a>
+        <a class="footer__link" href="#reviews">Отзывы</a>
+      </div>
+      <div class="footer__col">
+        <div class="footer__title">Обратная связь</div>
+        <a class="footer__link" href="#">Задать вопрос</a>
+        <a class="footer__link" href="#">Оставить отзыв</a>
+      </div>
+      <div class="footer__col">
+        <div class="footer__title">Контакты</div>
+        <div class="footer__text">📞 +7 (999) 99-99-99</div>
+        <div class="footer__text">✉️ test@mail.ru</div>
+      </div>
+      <div class="footer__col">
+        <div class="footer__title">Социальные сети</div>
+        <div class="social">
+          <a class="social__btn" href="#" aria-label="VK">VK</a>
+          <a class="social__btn" href="#" aria-label="TG">TG</a>
+          <a class="social__btn" href="#" aria-label="YouTube">YT</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© SIELOM.WEB. Сургут. Промышленный проект 3. 2026</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
