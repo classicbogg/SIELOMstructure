@@ -20,7 +20,6 @@ html, body { height: 100%; }
 
 body {
   margin: 0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
   background: var(--bg);
   color: var(--text);
 }
@@ -106,7 +105,6 @@ body {
   gap: 10px;
   text-decoration: none;
   color: var(--text);
-  font-weight: 700;
   letter-spacing: .6px;
   font-size: 14px;
 }
@@ -162,7 +160,6 @@ body {
 
 .section__title {
   font-size: 32px;
-  font-weight: 800;
   letter-spacing: 1.5px;
   margin-bottom: 30px;
   color: var(--accent);
@@ -247,7 +244,6 @@ body {
 
 .person-name {
   font-size: 42px;
-  font-weight: 900;
   line-height: 1.1;
   margin: 20px 0 15px;
   color: var(--accent);
@@ -310,7 +306,6 @@ body {
 
 .purple-connect__title {
   font-size: 38px;
-  font-weight: 800;
   line-height: 1.1;
   letter-spacing: 1px;
   color: white;
@@ -417,13 +412,11 @@ body {
 }
 
 .footer__brand {
-  font-weight: 850;
   letter-spacing: .9px;
   margin-bottom: 10px;
 }
 
 .footer__title {
-  font-weight: 750;
   margin-bottom: 10px;
   color: rgba(255,255,255,.75);
 }

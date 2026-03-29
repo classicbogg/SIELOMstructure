@@ -20,7 +20,6 @@ html, body { height: 100%; }
 
 body {
   margin: 0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
   background: var(--bg);
   color: var(--text);
   display: flex;
@@ -53,13 +52,7 @@ body {
   -webkit-backdrop-filter: blur(14px);
 }
 
-/* ===== HEADER (НЕ ТРОГАТЬ) ===== */
-.topbar {
-  position: relative;
-  top: 18px;
-  z-index: 50;
-  padding: 25px 18px;
-}
+
 
 .topbar__inner {
   height: 58px;
@@ -109,7 +102,6 @@ body {
   gap: 10px;
   text-decoration: none;
   color: var(--text);
-  font-weight: 700;
   letter-spacing: .6px;
   font-size: 14px;
 }
@@ -207,13 +199,11 @@ body {
 }
 
 .footer__brand {
-  font-weight: 850;
   letter-spacing: .9px;
   margin-bottom: 10px;
 }
 
 .footer__title {
-  font-weight: 750;
   margin-bottom: 10px;
   color: rgba(255,255,255,.75);
 }
@@ -312,12 +302,10 @@ body {
   color: #fff;
   transition: all 0.2s ease;
   outline: none;
-  font-family: inherit;
 }
 
 .login-input::placeholder {
   color: rgba(255, 255, 255, 0.5);
-  font-weight: 400;
 }
 
 .login-input:focus {
@@ -333,12 +321,10 @@ body {
   border-radius: 40px;
   padding: 0.85rem;
   font-size: 1rem;
-  font-weight: 600;
   color: white;
   cursor: pointer;
   transition: all 0.2s ease;
   margin-top: 0.5rem;
-  font-family: inherit;
   letter-spacing: 0.3px;
   box-shadow: 0 4px 12px rgba(106, 77, 255, 0.3);
 }

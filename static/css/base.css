@@ -4,15 +4,16 @@
   src: url('../media/fonts/RishaNeo.woff2') format('woff2'),
        url('../media/fonts/RishaNeo.woff') format('woff'),
        url('../media/fonts/RishaNeo.ttf') format('truetype');
-  font-weight: normal;
+  font-weight:100;
   font-style: normal;
+  
 }
 
 /* Подключение шрифта для обычного текста (Seenonim) */
 @font-face {
   font-family: 'Seenonim';
   src: url('../media/fonts/seenonim-v1.ttf') format('truetype');
-  font-weight: normal;
+  font-weight:200;
   font-style: normal;
 }
 
@@ -78,7 +79,7 @@ div {
   -webkit-backdrop-filter: blur(14px);
 }
 
-/* ===== HEADER (НЕ ТРОГАТЬ) ===== */
+/*  HEADER (НЕ ТРОГАТЬ)  */
 .topbar {
   position: relative;
   top: 18px;
@@ -134,7 +135,6 @@ div {
   gap: 10px;
   text-decoration: none;
   color: var(--text);
-  font-weight: 700;
   letter-spacing: .6px;
   font-size: 14px;
 }
@@ -185,7 +185,7 @@ div {
 
 
 
-/* ===== FOOTER (НЕ ТРОГАТЬ) ===== */
+/*  FOOTER (НЕ ТРОГАТЬ)  */
 .footer {
   padding: 42px 0 48px;
   background: transparent;
@@ -233,13 +233,11 @@ div {
 }
 
 .footer__brand {
-  font-weight: 850;
   letter-spacing: .9px;
   margin-bottom: 10px;
 }
 
 .footer__title {
-  font-weight: 750;
   margin-bottom: 10px;
   color: rgba(255,255,255,.75);
 }
