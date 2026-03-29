@@ -632,7 +632,7 @@ body{
   content: "";
   position: absolute;
   inset: 0;
-  background: url("ice.png") center / contain no-repeat;
+  background: url("../../media/img/ice.png") center / contain no-repeat;
    transform: translate(calc(75% + 12px), calc(70% + 12px))
              rotate(10deg) scaleX(-1);
   opacity: 1;
