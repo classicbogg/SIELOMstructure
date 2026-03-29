@@ -1,3 +1,21 @@
+/* Подключение шрифта для заголовков h2 (RishaNeo) */
+@font-face {
+  font-family: 'RishaNeo';
+  src: url('../media/fonts/RishaNeo.woff2') format('woff2'),
+       url('../media/fonts/RishaNeo.woff') format('woff'),
+       url('../media/fonts/RishaNeo.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Подключение шрифта для обычного текста (Seenonim) */
+@font-face {
+  font-family: 'Seenonim';
+  src: url('../media/fonts/seenonim-v1.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --bg: #0b0b10;
   --panel: rgba(255,255,255,.06);
@@ -20,9 +38,19 @@ html, body { height: 100%; }
 
 body {
   margin: 0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+  font-family: 'Seenonim', sans-serif;
   background: var(--bg);
   color: var(--text);
+}
+
+h2 {
+  font-family: 'RishaNeo', sans-serif;
+}
+
+p,
+span,
+div {
+  font-family: 'Seenonim', sans-serif;
 }
 
 .container {
