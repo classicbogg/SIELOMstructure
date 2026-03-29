@@ -1,9 +1,3 @@
-@font-face {
-  font-family: 'Seenonim';
-  src: url('../../media/fonts/seenonim-v1.ttf') format('truetype');
-  font-display: swap;
-}
-
 :root {
   --bg: #131313;
   --panel: #242424;
@@ -31,7 +25,6 @@ body {
 }
 
 body {
-  font-family: 'Seenonim', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

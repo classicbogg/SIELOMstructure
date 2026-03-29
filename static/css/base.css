@@ -1,10 +1,10 @@
 /* Подключение шрифта для заголовков h2 (RishaNeo) */
 @font-face {
   font-family: 'RishaNeo';
-  src: url('../media/fonts/RishaNeo.woff2') format('woff2'),
-       url('../media/fonts/RishaNeo.woff') format('woff'),
+  src: url('../media/fonts/RishaNeo.otf') format('opentype'),
        url('../media/fonts/RishaNeo.ttf') format('truetype');
-  font-weight:100;
+  font-weight: 400;
+  font-display: swap;
   font-style: normal;
   
 }
@@ -13,8 +13,9 @@
 @font-face {
   font-family: 'Seenonim';
   src: url('../media/fonts/seenonim-v1.ttf') format('truetype');
-  font-weight:200;
+  font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 :root {
@@ -39,7 +40,6 @@ html, body { height: 100%; }
 
 body {
   margin: 0;
-  font-family: 'Seenonim', sans-serif;
   background: var(--bg);
   color: var(--text);
 }
@@ -48,9 +48,23 @@ h2 {
   font-family: 'RishaNeo', sans-serif;
 }
 
+h1,
+h3,
+h4,
+h5,
+h6 {
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
 p,
 span,
-div {
+div,
+li,
+a,
+button,
+input,
+textarea,
+label {
   font-family: 'Seenonim', sans-serif;
 }
 
