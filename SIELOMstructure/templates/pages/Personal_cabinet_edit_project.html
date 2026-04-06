@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Редактировать проект</title>
+  <link rel="stylesheet" href="../../static/css/pages/Personal_cabinet_edit_project.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <h1 class="page-title">РЕДАКТИРОВАТЬ ПРОЕКТ</h1>
+      <p class="page-description">
+        Подберите лучшие примеры работ, демонстрирующие ваши навыки и профессионализм.
+        Загрузите изображения, анимацию или видео, показывающие работу с разных сторон,
+        в нескольких цветах, стилях или размерах.
+      </p>
+    </section>
+
+    <section class="panel field-panel">
+      <div class="panel-head">
+        <h2>Название работы</h2>
+        <span class="field-note">Не обязательно</span>
+      </div>
+
+      <label class="input-wrap">
+        <input id="projectTitle" type="text" maxlength="40" value="Работа № 43" placeholder="Введите название работы" />
+      </label>
+      <div class="counter"><span id="titleCounter">10</span> из 40 символов</div>
+    </section>
+
+    <section class="panel rubric-panel">
+      <div class="panel-head">
+        <h2>Рубрика</h2>
+        <span class="field-note required">Обязательно</span>
+      </div>
+
+      <div class="rubric-grid">
+        <label class="select-wrap">
+          <select id="categorySelect">
+            <option>Дизайн</option>
+            <option>Разработка</option>
+            <option>Маркетинг</option>
+            <option>3D</option>
+          </select>
+        </label>
+
+        <label class="select-wrap">
+          <select id="subcategorySelect">
+            <option>Логотип и брендинг</option>
+            <option>Интерфейсы</option>
+            <option>Полиграфия</option>
+            <option>Иллюстрации</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="type-group">
+        <h3>Тип</h3>
+        <div class="type-list">
+          <label class="radio-item">
+            <input type="radio" name="project-type" />
+            <span>Логотипы</span>
+          </label>
+          <label class="radio-item active">
+            <input type="radio" name="project-type" checked />
+            <span>Фирменный стиль</span>
+          </label>
+          <label class="radio-item">
+            <input type="radio" name="project-type" />
+            <span>Визитки</span>
+          </label>
+          <label class="radio-item">
+            <input type="radio" name="project-type" />
+            <span>Брендирование и сувенирка</span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel upload-panel">
+      <div class="panel-head">
+        <h2>Загрузите изображения или видео</h2>
+        <span class="field-note required">Минимум 1 изображение</span>
+      </div>
+
+      <div class="tips">
+        <div class="tip-box">
+          <div class="tip-icon icon-image">✦</div>
+          <p>Используйте чёткие и привлекающие внимание изображения. Избегайте размытых, растянутых или сильно сжатых изображений.</p>
+        </div>
+        <div class="tip-box">
+          <div class="tip-icon icon-play">▶</div>
+          <p>Показывайте проект с разных сторон. Для этого удобно загружать несколько кадров и выбирать лучший как главную обложку.</p>
+        </div>
+      </div>
+
+      <p class="upload-info">
+        В этом шаблоне основная логика сделана для добавления фото прямо на страницу.
+        Загруженные изображения сразу появляются в сетке ниже. Нажмите на карточку, чтобы
+        показать её в блоке «Обложка работы».
+      </p>
+
+      <input id="galleryInput" class="file-input" type="file" accept="image/*" multiple />
+
+      <div class="gallery-area">
+        <button id="openUploadButton" class="upload-tile" type="button">
+          <span class="upload-plus">＋</span>
+          <span class="upload-text">Загрузить изображения</span>
+        </button>
+
+        <div id="galleryGrid" class="gallery-grid"></div>
+      </div>
+
+      <p id="galleryHint" class="hint">Пока ничего не загружено.</p>
+    </section>
+
+    <section class="panel cover-panel">
+      <div class="panel-head">
+        <h2>Обложка работы</h2>
+        <span class="field-note required">Обязательно</span>
+      </div>
+
+      <p class="upload-info">
+        Слева показывается карточка проекта, справа — увеличенный просмотр выбранной фотографии.
+        Как только вы добавите первое изображение, оно автоматически станет текущей обложкой.
+      </p>
+
+      <div class="cover-layout">
+        <article class="project-card">
+          <div class="project-card__thumb">
+            <img id="cardPreview" alt="Превью проекта" />
+            <div id="cardPreviewPlaceholder" class="empty-thumb">Нет обложки</div>
+          </div>
+
+          <div class="project-card__body">
+            <h3 id="cardTitle">Работа № 43</h3>
+            <p id="cardMeta" class="project-card__meta">Логотип и брендинг</p>
+                    <p id="coverStatus" class="project-card__status">Обложка появится после загрузки первого изображения</p>
+        </div>
+        </article>
+
+        <div class="main-preview">
+          <img id="mainPreview" alt="Главное превью" />
+          <div id="mainPreviewPlaceholder" class="empty-main">
+            Здесь появится выбранная фотография
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="actions">
+      <button id="saveButton" class="save-button" type="button">Сохранить</button>
+    </div>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="../../static/js/pages/Personal_cabinet_edit_project.js"></script>
+</body>
+</html>
