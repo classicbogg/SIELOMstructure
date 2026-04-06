@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Добавить проект — SIELOM.WEB</title>
+  <link rel="stylesheet" href="./Personal_cabinet_add_project.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <div class="brand">SIELOM.WEB</div>
+      <nav class="nav">
+        <a href="#">Главная</a>
+        <a href="#">О нас</a>
+        <a href="#">Контакты</a>
+        <a href="#">Контакты</a>
+      </nav>
+      <div class="topbar-actions">
+        <button class="icon-btn" type="button" aria-label="Профиль">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-3.64 0-7 1.82-7 4.2 0 .44.36.8.8.8h12.4a.8.8 0 0 0 .8-.8C19 15.82 15.64 14 12 14Z" />
+          </svg>
+        </button>
+        <button class="icon-btn" type="button" aria-label="Телефон">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M17.7 14.4c-.95-.12-1.87.02-2.72.39a1.8 1.8 0 0 1-1.95-.26l-1.67-1.4a13.56 13.56 0 0 1-2.49-2.49l-1.4-1.67a1.8 1.8 0 0 1-.26-1.95 5.8 5.8 0 0 0 .39-2.72A1.8 1.8 0 0 0 5.82 3H3.95A1.95 1.95 0 0 0 2 5.1a16.9 16.9 0 0 0 5.02 11.88A16.9 16.9 0 0 0 18.9 22 1.95 1.95 0 0 0 21 20.05v-1.87a1.8 1.8 0 0 0-1.5-1.78Z" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <section class="intro">
+        <h1>ДОБАВИТЬ ПРОЕКТ</h1>
+        <p>
+          Подберите лучшие примеры работ, демонстрирующие ваши навыки и профессионализм.
+          Загрузите изображения, анимацию или видео, показывающие работу с разных сторон,
+          в нескольких цветах, стилях или размерах.
+        </p>
+      </section>
+
+      <form class="project-form" id="projectForm" novalidate>
+        <section class="card">
+          <div class="card-head">
+            <h2>Название работы</h2>
+            <span class="muted">Не обязательно</span>
+          </div>
+
+          <label class="input-wrap">
+            <input
+              id="projectTitle"
+              name="projectTitle"
+              type="text"
+              maxlength="40"
+              placeholder="Работа № 43"
+              autocomplete="off"
+            />
+          </label>
+
+          <div class="helper-row">
+            <span class="error-text" id="titleError"></span>
+            <span class="muted" id="titleCounter">0 из 40 символов</span>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-head">
+            <h2>Рубрика</h2>
+            <span class="required-mark">Обязательно</span>
+          </div>
+
+          <label class="select-wrap">
+            <select id="projectCategory" name="projectCategory" required>
+              <option value="">Выберите категорию</option>
+              <option value="graphic-design">Графический дизайн</option>
+              <option value="ui-ux">UI / UX дизайн</option>
+              <option value="branding">Брендинг</option>
+              <option value="logo">Логотипы</option>
+              <option value="web-design">Веб-дизайн</option>
+              <option value="illustration">Иллюстрации</option>
+              <option value="motion">Анимация / motion</option>
+              <option value="polygraphy">Полиграфия</option>
+            </select>
+          </label>
+          <p class="field-error" id="categoryError"></p>
+        </section>
+
+        <section class="card upload-card">
+          <div class="card-head">
+            <h2>Загрузите изображения или видео</h2>
+            <span class="required-mark">Минимум 1 изображение</span>
+          </div>
+
+          <div class="tips-list">
+            <div class="tip-item">
+              <img src="./Personal_cabinet_add_project_add_png.png" alt="" />
+              <p>
+                Используйте четкие и привлекающие внимание изображения. Избегайте размытых, растянутых
+                или сильно сжатых изображений.
+              </p>
+            </div>
+            <div class="tip-item">
+              <img src="./Personal_cabinet_add_project_play.png" alt="" />
+              <p>
+                Повысьте вовлеченность покупателей на 40% и увеличьте продажи с помощью видеоролика,
+                который демонстрирует качество ваших услуг и сервиса.
+              </p>
+            </div>
+          </div>
+
+          <p class="upload-description">
+            Изображения формата JPEG, JPG, PNG, GIF, WEBP. Вес не более 10 МБ. Рекомендуемый размер 1920x1280 и более.<br />
+            Видео формата MP4, AVI, MOV. Вес не более 50 МБ, длительность до 75 сек. Для горизонтальных видео
+            размер не менее 660x165 px, для вертикальных видео размер не менее 132x440 px.
+          </p>
+
+          <input
+            class="hidden-input"
+            id="projectMedia"
+            name="projectMedia"
+            type="file"
+            accept="image/jpeg,image/jpg,image/png,image/gif,image/webp,video/mp4,video/avi,video/quicktime"
+            multiple
+          />
+
+          <button class="upload-zone" id="mediaUploadTrigger" type="button">
+            <img src="./Personal_cabinet_add_project_add_circle.png" alt="" />
+            <span>Загрузить изображения<br />или видео</span>
+          </button>
+
+          <div class="previews-grid" id="mediaPreviewGrid"></div>
+          <p class="field-error" id="mediaError"></p>
+        </section>
+
+        <section class="card upload-card">
+          <div class="card-head">
+            <h2>Обложка работы</h2>
+            <span class="required-mark">Обязательно</span>
+          </div>
+
+          <p class="upload-description top-gap-small">
+            Загрузите отдельное изображение обложки, чтобы ваша работа в каталоге смотрелась привлекательно.
+          </p>
+
+          <input
+            class="hidden-input"
+            id="projectCover"
+            name="projectCover"
+            type="file"
+            accept="image/jpeg,image/jpg,image/png,image/gif,image/webp"
+          />
+
+          <button class="upload-zone" id="coverUploadTrigger" type="button">
+            <img src="./Personal_cabinet_add_project_add_circle.png" alt="" />
+            <span>Загрузить изображения<br />или видео</span>
+          </button>
+
+          <div class="cover-preview" id="coverPreview"></div>
+          <p class="field-error" id="coverError"></p>
+        </section>
+
+        <div class="form-actions">
+          <button class="save-btn" id="saveProjectBtn" type="submit">Сохранить</button>
+        </div>
+      </form>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-col brand-col">
+        <div class="footer-brand">SIELOM.WEB</div>
+        <a href="#">Главная</a>
+        <a href="#">О нас</a>
+        <a href="#">Контакты</a>
+        <a href="#">Отзывы</a>
+        <p class="copyright">© SIELOM.WEB. Сургут, Пролетарский проспект 3. 2026</p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Обратная связь</h3>
+        <a href="#">Задать вопрос</a>
+        <a href="#">Оставить отзыв</a>
+      </div>
+
+      <div class="footer-col">
+        <h3>Контакты</h3>
+        <a href="tel:+79999999999">+7 (999) 99-99-99</a>
+        <a href="mailto:test@mail.ru">test@mail.ru</a>
+      </div>
+
+      <div class="footer-col">
+        <h3>Социальные сети</h3>
+        <div class="socials">
+          <a href="#" aria-label="VK">VK</a>
+          <a href="#" aria-label="Telegram">TG</a>
+          <a href="#" aria-label="Pinterest">P</a>
+          <a href="#" aria-label="Dribbble">D</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="./Personal_cabinet_add_project.js"></script>
+</body>
+</html>

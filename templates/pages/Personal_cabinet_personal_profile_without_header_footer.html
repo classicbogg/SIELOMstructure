@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Личный профиль</title>
+  <link rel="stylesheet" href="Personal_cabinet_personal_profile_without_header_footer.css" />
+</head>
+<body>
+  <main class="profile-page">
+    <section class="hero">
+      <h1>ЛИЧНЫЙ ПРОФИЛЬ</h1>
+      <p>Настройте информацию, которая будет видна на сайте</p>
+    </section>
+
+    <section class="card form-card">
+      <form id="profileForm" novalidate>
+        <div class="form-grid two-col">
+          <div class="field-group">
+            <label for="firstName">Имя</label>
+            <input id="firstName" name="firstName" type="text" placeholder="Диана" required />
+          </div>
+          <div class="field-group">
+            <label for="lastName">Фамилия</label>
+            <input id="lastName" name="lastName" type="text" placeholder="Шинкевич" required />
+          </div>
+        </div>
+
+        <div class="form-grid two-col">
+          <div class="field-group">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="shinkevich.diana@list.ru" required />
+          </div>
+          <div class="field-group">
+            <label for="role">Роль/должность</label>
+            <input id="role" name="role" type="text" placeholder="Главный Дизайнер" required />
+          </div>
+        </div>
+
+        <div class="form-grid three-col narrow-row">
+          <div class="field-group">
+            <label for="age">Возраст</label>
+            <input id="age" name="age" type="number" min="0" max="120" placeholder="22" />
+          </div>
+          <div class="field-group">
+            <label for="phone">Телефон</label>
+            <input id="phone" name="phone" type="tel" placeholder="+79227669243" />
+          </div>
+          <div class="field-group">
+            <label for="telegram">Telegram</label>
+            <input id="telegram" name="telegram" type="text" placeholder="@dianasshin" />
+          </div>
+        </div>
+
+        <div class="form-grid two-col">
+          <div class="field-group">
+            <label for="github">GitHub</label>
+            <input id="github" name="github" type="url" placeholder="https://github.com/..." />
+          </div>
+          <div class="field-group">
+            <label for="website">Сайт</label>
+            <input id="website" name="website" type="url" placeholder="https://example.com" />
+          </div>
+        </div>
+
+        <div class="sub-card visibility-card">
+          <h2>Публичный профиль</h2>
+          <div class="check-list">
+            <label class="check-item">
+              <input type="checkbox" name="showPublicPage" checked />
+              <span class="checkmark"></span>
+              <span>Показывать публичную страницу</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" name="showEmail" checked />
+              <span class="checkmark"></span>
+              <span>Показывать email</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" name="showPhone" checked />
+              <span class="checkmark"></span>
+              <span>Показывать телефон</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" name="showTelegram" checked />
+              <span class="checkmark"></span>
+              <span>Показывать Telegram</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="sub-card">
+          <div class="field-group">
+            <label for="about">О себе</label>
+            <textarea id="about" name="about" rows="8" placeholder="Расскажите о себе, опыте и навыках..."></textarea>
+          </div>
+        </div>
+
+        <div class="sub-card">
+          <div class="field-group">
+            <label for="skills">Навыки</label>
+            <input id="skills" name="skills" type="text" placeholder="Графический дизайн, верстка, HTML, CSS, JS" />
+          </div>
+        </div>
+
+        <div class="sub-card photo-card">
+          <div class="field-group">
+            <label>Фото</label>
+            <div class="file-upload-row">
+              <label class="file-button" for="photoInput">Выберите файл</label>
+              <input id="photoInput" name="photo" type="file" accept="image/*" />
+              <div class="file-name" id="fileName">Файл не выбран</div>
+            </div>
+          </div>
+          <div class="photo-preview hidden" id="photoPreviewWrapper">
+            <img id="photoPreview" alt="Предпросмотр фото профиля" />
+            <button class="photo-remove" id="removePhotoBtn" type="button">Удалить фото</button>
+          </div>
+        </div>
+
+        <div class="actions-row">
+          <button class="secondary-btn" id="changePasswordBtn" type="button">Сменить пароль</button>
+        </div>
+
+        <div class="save-wrapper">
+          <button class="primary-btn" type="submit">Сохранить</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="Personal_cabinet_personal_profile_without_header_footer.js"></script>
+</body>
+</html>
