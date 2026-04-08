@@ -91,8 +91,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const cx = width / 2;
     const cy = height / 2;
-    const rx = width * 0.34;
-    const ry = height * 0.28;
+    const rx = width * 0.45;
+    const ry = height * 0.32;
 
     drawBackgroundGlow(cx, cy);
     drawOrbitRing(cx, cy, rx, ry, time * 0.003);

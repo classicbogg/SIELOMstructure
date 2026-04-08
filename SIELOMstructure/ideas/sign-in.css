@@ -273,74 +273,11 @@ body {
   margin-bottom: 2rem;
 }
 
-
-/* ===== АНИМАЦИЯ ВОКРУГ ЛОГОТИПА ===== */
-.logo-orbit {
-  position: relative;
-  width: 260px;
-  height: 260px;
-  margin: 0 auto 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  isolation: isolate;
-}
-
-.logo-orbit__canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-  filter: drop-shadow(0 0 18px rgba(138, 99, 255, 0.28));
-}
-
-.logo-orbit__core {
-  position: relative;
-  z-index: 2;
-  width: 172px;
-  height: 172px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  background:
-    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.08), rgba(255,255,255,0.02) 62%, transparent 75%);
-}
-
-.logo-orbit__core::before {
-  content: "";
-  position: absolute;
-  inset: -14px;
-  border-radius: 999px;
-  background:
-    radial-gradient(circle, rgba(138,99,255,0.18), transparent 68%);
-  filter: blur(14px);
-  z-index: -1;
-}
-
-.logo-orbit__core::after {
-  content: "";
-  position: absolute;
-  inset: -6px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.08);
-  box-shadow:
-    0 0 24px rgba(138,99,255,0.14),
-    inset 0 0 18px rgba(255,255,255,0.03);
-  z-index: -1;
-}
-
 .logo-img {
-  position: relative;
-  z-index: 3;
   max-width: 180px;
   height: auto;
   display: block;
-  filter:
-    drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3))
-    drop-shadow(0 0 12px rgba(138,99,255,0.22));
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
 }
 
 /* Форма */
@@ -476,17 +413,6 @@ body {
     max-width: 94%;
   }
   
-  .logo-orbit {
-    width: 220px;
-    height: 220px;
-    margin-bottom: 1.6rem;
-  }
-
-  .logo-orbit__core {
-    width: 150px;
-    height: 150px;
-  }
-
   .logo-img {
     max-width: 140px;
   }
@@ -507,16 +433,6 @@ body {
 }
 
 @media (max-width: 400px) {
-  .logo-orbit {
-    width: 200px;
-    height: 200px;
-  }
-
-  .logo-orbit__core {
-    width: 138px;
-    height: 138px;
-  }
-
   .social-icon__img {
     width: 34px;
     height: 34px;

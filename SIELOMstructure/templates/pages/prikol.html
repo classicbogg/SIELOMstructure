@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DESIGNIRI</title>
+  <style>
+    html, body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+
+    canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+
+  <script>
+    const TEXT = "SIELOM.WEB";
+
+    const PALETTE = [
+      "#ff5a1f",
+      "#f97567",
+      "#a85ceb",
+      "#19afe6",
+      "#10cc82"
+    ];
+
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+
+    const offCanvas = document.createElement("canvas");
+    const offCtx = offCanvas.getContext("2d", { willReadFrequently: true });
+
+    let w = 0;
+    let h = 0;
+    let dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    let particles = [];
+    let centerX = 0;
+    let centerY = 0;
+
+    function hexToRgb(hex) {
+      const clean = hex.replace("#", "");
+      return {
+        r: parseInt(clean.slice(0, 2), 16),
+        g: parseInt(clean.slice(2, 4), 16),
+        b: parseInt(clean.slice(4, 6), 16)
+      };
+    }
+
+    const paletteRgb = PALETTE.map(hexToRgb);
+
+    function lerp(a, b, t) {
+      return a + (b - a) * t;
+    }
+
+    function easeInOutSine(t) {
+      return -(Math.cos(Math.PI * t) - 1) / 2;
+    }
+
+    function mixColor(c1, c2, t) {
+      return {
+        r: Math.round(lerp(c1.r, c2.r, t)),
+        g: Math.round(lerp(c1.g, c2.g, t)),
+        b: Math.round(lerp(c1.b, c2.b, t))
+      };
+    }
+
+    function getGradientColor(t) {
+      if (t <= 0) return paletteRgb[0];
+      if (t >= 1) return paletteRgb[paletteRgb.length - 1];
+
+      const scaled = t * (paletteRgb.length - 1);
+      const index = Math.floor(scaled);
+      const localT = scaled - index;
+
+      return mixColor(
+        paletteRgb[index],
+        paletteRgb[Math.min(index + 1, paletteRgb.length - 1)],
+        localT
+      );
+    }
+
+    function fitFontSize(text, maxWidth, maxHeight) {
+      let size = Math.min(w * 0.16, 180);
+
+      while (size > 20) {
+        offCtx.font = `900 ${size}px Arial Black, Arial, sans-serif`;
+        const metrics = offCtx.measureText(text);
+        const textWidth = metrics.width;
+
+        if (textWidth <= maxWidth && size <= maxHeight) {
+          return size;
+        }
+
+        size -= 2;
+      }
+
+      return 20;
+    }
+
+    function buildTextPoints() {
+      offCanvas.width = Math.floor(w * dpr);
+      offCanvas.height = Math.floor(h * dpr);
+
+      offCtx.setTransform(1, 0, 0, 1, 0, 0);
+      offCtx.clearRect(0, 0, offCanvas.width, offCanvas.height);
+      offCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      const fontSize = fitFontSize(TEXT, w * 0.78, h * 0.22);
+
+      offCtx.fillStyle = "#ffffff";
+      offCtx.textAlign = "center";
+      offCtx.textBaseline = "middle";
+      offCtx.font = `900 ${fontSize}px Arial Black, Arial, sans-serif`;
+      offCtx.fillText(TEXT, w / 2, h / 2);
+
+      const imageData = offCtx.getImageData(0, 0, offCanvas.width, offCanvas.height).data;
+
+      const points = [];
+      const step = Math.max(5, Math.floor(w / 260)) * dpr;
+
+      let minX = Infinity;
+      let maxX = -Infinity;
+
+      for (let y = 0; y < offCanvas.height; y += step) {
+        for (let x = 0; x < offCanvas.width; x += step) {
+          const index = (y * offCanvas.width + x) * 4;
+          const alpha = imageData[index + 3];
+
+          if (alpha > 140) {
+            const px = x / dpr;
+            const py = y / dpr;
+
+            points.push({ x: px, y: py });
+
+            if (px < minX) minX = px;
+            if (px > maxX) maxX = px;
+          }
+        }
+      }
+
+      const rangeX = Math.max(1, maxX - minX);
+
+      return points.map((point) => {
+        const colorT = (point.x - minX) / rangeX;
+        return {
+          ...point,
+          color: getGradientColor(colorT)
+        };
+      });
+    }
+
+    function createParticles() {
+      const points = buildTextPoints();
+      particles = [];
+
+      for (const point of points) {
+        const dx = point.x - centerX;
+        const dy = point.y - centerY;
+        const len = Math.hypot(dx, dy) || 1;
+
+        const push = 35 + Math.random() * 75;
+        const jitter = 18 + Math.random() * 18;
+
+        const looseX =
+          point.x +
+          (dx / len) * push +
+          (Math.random() - 0.5) * jitter;
+
+        const looseY =
+          point.y +
+          (dy / len) * push +
+          (Math.random() - 0.5) * jitter;
+
+        particles.push({
+          homeX: point.x,
+          homeY: point.y,
+          looseX,
+          looseY,
+          size: 1.2 + Math.random() * 1.9,
+          seed: Math.random() * Math.PI * 2,
+          floatAmp: 0.4 + Math.random() * 0.8,
+          swirlAmp: 4 + Math.random() * 7,
+          color: point.color
+        });
+      }
+    }
+
+    function resize() {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+      w = window.innerWidth;
+      h = window.innerHeight;
+
+      canvas.width = Math.floor(w * dpr);
+      canvas.height = Math.floor(h * dpr);
+      canvas.style.width = w + "px";
+      canvas.style.height = h + "px";
+
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      centerX = w / 2;
+      centerY = h / 2;
+
+      createParticles();
+    }
+
+    function draw(now) {
+      ctx.clearRect(0, 0, w, h);
+      ctx.fillStyle = "#000";
+      ctx.fillRect(0, 0, w, h);
+
+      const cycle = (Math.sin(now * 0.0011) + 1) / 2;
+      const morph = easeInOutSine(cycle);
+      const swirlPhase = Math.sin(morph * Math.PI);
+
+      ctx.globalCompositeOperation = "lighter";
+
+      for (const p of particles) {
+        let x = lerp(p.looseX, p.homeX, morph);
+        let y = lerp(p.looseY, p.homeY, morph);
+
+        x += Math.cos(now * 0.0013 + p.seed) * p.floatAmp;
+        y += Math.sin(now * 0.0016 + p.seed) * p.floatAmp;
+
+        x += Math.cos(now * 0.002 + p.seed * 1.7) * p.swirlAmp * swirlPhase * 0.35;
+        y += Math.sin(now * 0.0022 + p.seed * 1.4) * p.swirlAmp * swirlPhase * 0.35;
+
+        const pulse = 0.88 + 0.18 * Math.sin(now * 0.004 + p.seed);
+        const radius = p.size * pulse;
+
+        const color = `rgb(${p.color.r}, ${p.color.g}, ${p.color.b})`;
+
+        ctx.beginPath();
+        ctx.fillStyle = color;
+        ctx.shadowColor = color;
+        ctx.shadowBlur = 14;
+        ctx.arc(x, y, radius, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      ctx.shadowBlur = 0;
+      ctx.globalCompositeOperation = "source-over";
+
+      requestAnimationFrame(draw);
+    }
+
+    window.addEventListener("resize", resize);
+
+    resize();
+    requestAnimationFrame(draw);
+  </script>
+</body>
+</html>
